@@ -29,7 +29,11 @@
 """
 from __future__ import print_function
 
-import __builtin__
+try:
+    import builtins
+except:
+    import __builtin__ as builtins
+
 import sys
 
 __all__ = ['print']
@@ -42,7 +46,7 @@ __url__ = 'https://github.com/don-ramon/colorprint'
 __copyright__ = '(c) 2012 %s' % __author__
 __license__ = 'BSD'
 
-__version__ = '0.1'
+__version__ = '0.1.1'
 
 _colors = {
     'grey': 30,  'red': 31,
@@ -84,7 +88,13 @@ def print(*args, **kwargs):
     background = kwargs.pop('background', None)
 
     formats = kwargs.pop('format', [])
-    if isinstance(formats, basestring):
+
+    try:
+        str_class = str
+    except:
+        str_class = basestring
+
+    if isinstance(formats, str_class):
         formats = [formats]
 
     file = kwargs.get('file', sys.stdout)
@@ -94,16 +104,16 @@ def print(*args, **kwargs):
         kwargs['end'] = ""
 
         if color:
-            __builtin__.print('\033[%dm' % _colors[color], file=file, end='')
+            builtins.print('\033[%dm' % _colors[color], file=file, end='')
         if background:
-            __builtin__.print('\033[%dm' % _backgrounds[background], file=file, end='')
+            builtins.print('\033[%dm' % _backgrounds[background], file=file, end='')
         for format in formats:
-            __builtin__.print('\033[%dm' % _formats[format], file=file, end='')
+            builtins.print('\033[%dm' % _formats[format], file=file, end='')
 
-        __builtin__.print(*args, **kwargs)
-        __builtin__.print('\033[0m', file=file, end=end)
+        builtins.print(*args, **kwargs)
+        builtins.print('\033[0m', file=file, end=end)
     else:
-        __builtin__.print(*args, **kwargs)
+        builtins.print(*args, **kwargs)
 
 if __name__ == '__main__':
     print('Hello', 'world', color='white', background='blue', format='underline', end='', sep=', ')
