@@ -24,7 +24,7 @@
         Hello, world!
         ^-- blue    ^-- blinking, bold and red
 
-    :copyright: 2012 Aleksey Rembish
+    :copyright: 2015 Aleksey Rembish
     :license: BSD
 """
 from __future__ import print_function
@@ -42,8 +42,8 @@ __author__ = 'Aleksey Rembish'
 __email__ = 'alex@rembish.ru'
 
 __description__ = 'Python module to print in color using py3k-style print function'
-__url__ = 'https://github.com/don-ramon/colorprint'
-__copyright__ = '(c) 2012 %s' % __author__
+__url__ = 'https://github.com/rembish/colorprint'
+__copyright__ = '(c) 2015 %s' % __author__
 __license__ = 'BSD'
 
 __version__ = '0.1.1'
