@@ -4,7 +4,7 @@ import colorprint
 
 setup(
     name='colorprint',
-    version="0.1",
+    version="0.1.1",
     license="BSD",
     description="Python module to print in color using py3k-style print function",
     long_description="""Python module to print in color using py3k-style print function. It uses
@@ -12,12 +12,13 @@ setup(
     routine and give it some "black" magic.""",
     author="Aleksey Rembish",
     author_email="alex@rembish.ru",
-    url="https://github.com/don-ramon/colorprint",
+    url="https://github.com/rembish/colorprint",
     py_modules = ["colorprint"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Console",
-        "Programming Language :: Python :: 2 :: Only",
+        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 3",
         "License :: OSI Approved :: BSD License",
         "Intended Audience :: Developers",
         "Operating System :: POSIX :: Linux",
